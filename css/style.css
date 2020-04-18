@@ -1,0 +1,214 @@
+* {
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+html {
+	height: 100%;
+}
+
+h1{
+	align-self: center;
+	text-align: center;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background-color: #23262a;
+	background-image: url("../img/background.jpg");
+	background-size: cover;
+	font-family: "meslo", serif;
+	color: #fff;
+	font-size: 14px;
+	position: relative;
+}
+
+#grid{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 10%; 
+	position: fixed;
+}
+
+.shortcut{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.shortcut-icon{
+	background-color: whitesmoke;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100px;
+	min-height: 100px;
+	margin: 10px;
+	text-align: center;
+	line-height: 35px;
+	font-size: 14px;
+	border-radius: 10px;
+}
+
+.shortcut-name{
+	background-color: #23262a;
+	color: aliceblue;
+	opacity: 0.77;
+	width:90%;
+	max-width: 110px;
+	margin: 5%;
+	text-align: center;
+	align-self: center;
+	border-radius: 5px;
+}
+
+a{
+	color: inherit;
+}
+
+.fullscreen{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+}
+
+#main{
+	z-index: 10;
+}
+
+img{
+	width: 100%;
+}
+
+#background {
+	background-color: lightgray;
+	opacity: 0.5;
+	z-index: 1;
+}
+
+canvas{
+  display: block;
+  vertical-align: bottom;
+}
+
+.container {
+	width: 55rem;
+	height: 100%;
+	margin: 0px auto;
+	position: relative;
+}
+
+.repositories {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.repositories .repo {
+	width: 46%;
+	padding: 10px 0px;
+	margin: 0 2% 20px 2%;
+}
+
+.repositories .repo h3 {
+	font-weight: normal;
+	margin: 0px 0px 5px 0px;
+}
+
+.repositories .repo h3 a {
+	color: #e4d72f;
+}
+
+.repositories .repo h3:hover a {
+	text-decoration: underline;
+}
+
+.repositories .repo .description {
+	margin-bottom: 5px;
+}
+
+.repositories .repo .extras .extra {
+	display: inline-block;
+	margin-right: 25px;
+	color: #949ba2;
+}
+
+.options {
+	width: 50%;
+	margin: 0 25%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.options h1 {
+	font-size: 23px;
+	margin: 0 0 10px 0;
+}
+
+.options .panel {
+	width: 100%;
+	padding: 10px;
+	background-color: rgba(52,60,65,.5);
+}
+
+.options .panel .option {
+	width: 100%;
+	padding: 5px 0;
+}
+
+.options .panel .option label {
+	font-size: 12px;
+	width: 100%;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.options .panel .option select {
+	width: 100%;
+	padding: 5px 2%;
+	background-color: #394147;
+	color: #949ba2;
+	outline: none;
+	border: 0;
+	border-radius: 3px;
+	font-size: 14px;
+	font-family: "meslo", serif;
+}
+
+.options .panel .option input {
+	width: 96%;
+	padding: 5px 2%;
+	background-color: #394147;
+	color: #949ba2;
+	outline: none;
+	border: 0;
+	font-family: "meslo", serif;
+	border-radius: 3px;
+	font-size: 14px;
+}
+
+.options .panel .option button {
+	width: 100%;
+	padding: 8px 2%;
+	margin-top: 5px;
+	outline: none;
+	border: 0;
+	cursor: pointer;
+	font-family: "meslo", serif;
+	background-color: #3c763d;
+	color: #fff;
+}
+
+@font-face {
+  font-family: "meslo";
+  src: url("../font/MesloLGLDZ-Regular.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
