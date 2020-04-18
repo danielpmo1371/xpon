@@ -1,25 +1,21 @@
 <h1 align="center">
-	<br>
-	<a href="https://chrome.google.com/webstore/detail/github-explorer/pplmpojaghcognfanmlmonfhdmldlmff"><img src="https://github.com/ibrahimsn98/github-explorer/blob/master/img/icon/icon128.png?raw=true" alt="Markdownify"></a>
-	<br>
-		GitHub Explorer
-	<br>
+	
+		XPon Center
+		
 </h1>
-<h5 align="center">A startup page Chrome extension which shows GitHub repositories that are related with your interests.</h5>
-<p align="center"><a href="https://chrome.google.com/webstore/detail/github-explorer/pplmpojaghcognfanmlmonfhdmldlmff" target="_blank">Chrome Web Store</a></p>
+<h5 align="center">A startup page Chrome extension which shows all you need to be your internet center.</h5>
+<p align="center"><a href="https://chrome.google.com/webstore/" target="_blank">Chrome Web Store</a></p>
 
 <p align="center">
-  <img src="https://lh3.googleusercontent.com/rGVcV3p3ZJOP2bJfUF32OoB4HdQJb0ZcaqNz7XA8Uq06lsI6ByQRzLgisAiBJuL2y3NF8UEYEQ=w640-h400-e365">
+  <img src="">
 </p>
 
 ## Features
-- You can customize your recommended GitHub repositories with custom keyword or repository language.
-- Works offline.
+- Place Holder
 
 ## TODO
-- [ ] Filter repositories by topics  
+- Place Holder  
 
 ## License
 MIT
 
-> Follow me on Twitter [@ibrahimsn98](https://twitter.com/ibrahimsn98)
