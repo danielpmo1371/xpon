@@ -1,9 +1,7 @@
 <h1 align="center">
-	<br>
 	
-	<br>
-		GitHub Explorer
-	<br>
+		XPon Center
+		
 </h1>
 <h5 align="center">A startup page Chrome extension which shows all you need to be your internet center.</h5>
 <p align="center"><a href="https://chrome.google.com/webstore/" target="_blank">Chrome Web Store</a></p>
