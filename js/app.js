@@ -3,10 +3,8 @@
 
 $(document).ready(function () {
 
-	chrome.storage.sync.get({userName: "", language: "", animation: "true"}, function(data) {
+	chrome.storage.sync.get({userName: ""}, function(data) {
 		$(".userName").text(data.userName.toUpperCase());
-		$(".language").val(data.language);
-		$(".animation").val(data.animation)
 	});
 	
 	class MyShortcut extends HTMLElement {
@@ -54,23 +52,13 @@ $(document).ready(function () {
 	
 	customElements.define('my-paragraph',
 		class extends HTMLElement {
-			constructor() {
-				super();
+			connectedCallback() {
 				let template = document.getElementById('my-paragraph');
 				let templateContent = template.content;
 
-				let contentAtt = this.getAttribute('content');
-
 				let templateClone = templateContent.cloneNode(true);
 
-				let child = templateClone.querySelector("#content");
-
-				child.innerText = "Success";
-
-				console.log(child);
-
-				const shadowRoot = this.attachShadow({ mode: 'open' })
-					.appendChild(templateClone);
+				this.appendChild(templateClone);
 			}
 		}
 	);
@@ -79,33 +67,49 @@ $(document).ready(function () {
 		var appShortcuts = []; 
 		appShortcuts = data.shortcuts;
 		appShortcuts.forEach(element => {
-			const tempshortcut = document.createElement('my-shortcut');
+			const tempshortcut = document.createElement('my-paragraph');
 			tempshortcut.setAttribute('name', element.title);
 			tempshortcut.setAttribute('link', element.url);
 			tempshortcut.setAttribute('icon', element.icon);
 
 			let grid = document.getElementById('grid');
 			grid.appendChild(tempshortcut);
+			
+			setShortcutTemplateValues(tempshortcut, element.title, element.url, element.icon);
 		});
-	});
 
-	$(".deleteBtn").click(function () {
-		var name = this.getAttribute('name');
-		var link = this.getAttribute('link');
-		var icon = this.getAttribute('icon');
-
-		chrome.storage.sync.get({ shortcuts: [] }, function (data) {
-
-			var result = data.shortcuts.filter(x => x.url != link);
-
-			chrome.storage.sync.set({ shortcuts: result }, function () {
-				console.log('Value is set to ' + result);
+		$(".deleteBtn").click(function (event) {
+			event.preventDefault();
+	
+			var name = this.getAttribute('name');
+			var link = this.getAttribute('link');
+			var icon = this.getAttribute('icon');
+	
+			chrome.storage.sync.get({ shortcuts: [] }, function (data) {
+	
+				var result = data.shortcuts.filter(x => x.url != link);
+	
+				chrome.storage.sync.set({ shortcuts: result }, function () {
+					console.log('Value is set to ' + result);
+				});
 			});
 		});
 	});
 
+	function setShortcutTemplateValues(template, title, url, icon){
+		let nameElement = template.querySelector(".shortcut-name>a");
+		let iconElement = template.querySelector(".shortcut-icon");
+		let linkElement = template.querySelector(".shortcut");
+		let deleteElement = template.querySelector(".deleteBtn");
 
+		linkElement.href = url;
+		nameElement.innerText = title;
+		iconElement.style.backgroundImage = icon ? `url(${icon})` : `url(chrome://favicon/${url})`;
 
+		deleteElement.setAttribute('name', title);
+		deleteElement.setAttribute('link', url);
+		deleteElement.setAttribute('icon', icon);
+	}
 
 	// chrome.storage.local.get("data", function(data) {
 

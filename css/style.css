@@ -91,9 +91,19 @@ img{
 	z-index: 1;
 }
 
-.deleteBtn, .deleteBtn>img{
-	width: 7px;
-	height: 7px;
+.deleteBtn{
+	width: 15px;
+	height: 15px;
+	margin: 0px;
+	padding-left: 95px;
+	position: absolute;
+	display: block;
+}
+
+.deleteBtn>img{
+	width: 15px;
+	height: 15px;
+	left: 95%;
 }
 
 
