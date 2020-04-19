@@ -99,11 +99,13 @@ $(document).ready(function () {
 	function setShortcutTemplateValues(template, title, url, icon){
 		let nameElement = template.querySelector(".shortcut-name>a");
 		let iconElement = template.querySelector(".shortcut-icon");
-		let linkElement = template.querySelector(".shortcut");
+		let linkElement = template.querySelector(".shortcut>a:nth-child(2)");
 		let deleteElement = template.querySelector(".deleteBtn");
 
 		linkElement.href = url;
+		nameElement.href = url;
 		nameElement.innerText = title;
+
 		iconElement.style.backgroundImage = icon ? `url(${icon})` : `url(chrome://favicon/${url})`;
 
 		deleteElement.setAttribute('name', title);
