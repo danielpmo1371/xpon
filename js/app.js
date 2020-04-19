@@ -80,11 +80,15 @@ $(document).ready(function () {
 
 		$(".deleteBtn").click(function (event) {
 			event.preventDefault();
-	
+
 			var name = this.getAttribute('name');
 			var link = this.getAttribute('link');
 			var icon = this.getAttribute('icon');
-	
+			
+			var confirm = window.confirm(`Are you sure you want to delete ${name}?`);
+			
+			if (!confirm) return;
+
 			chrome.storage.sync.get({ shortcuts: [] }, function (data) {
 	
 				var result = data.shortcuts.filter(x => x.url != link);
