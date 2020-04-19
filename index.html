@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="background" class="fullscreen">
-		<h1>D A N I E L</h1>
+		<h1 class="userName">Not yet</h1>
 	</div>
 	<div id="main" class="fullscreen">
 		<div id="grid" class="fullscreen">
@@ -20,12 +20,24 @@
 			<my-shortcut name="Build Server - Octopus" link="http://build.clevermedkits.com:82/" icon="img/sitesIcons/octopusdeploy-icon.png"></my-shortcut>
 			<my-shortcut name="Azure" link="http://portal.azure.com" icon="img/sitesIcons/azure-icon.png"></my-shortcut>
 			<my-shortcut name="ITL Slack" link="https://clevermedkits.slack.com/" icon=""></my-shortcut>
+			<my-shortcut name="Youtube" link="http://Youtube.com" icon=""></my-shortcut>
+			<my-shortcut name="Gmail" link="https://gmail.com" icon=""></my-shortcut>
 			<my-shortcut name="DigitalCat" link="" icon="img/icon/icon128.png"></my-shortcut>
 			<my-paragraph content="test content"></my-paragraph>
 		</div>
 	</div>
 
 	<template id="my-paragraph">
+		<div class="shortcut">
+			<a class="deleteBtn"><img width="17px" src="img/deleteBtn.png" alt=""></a>
+			<a href="https://bitbucket.org/inventory-technologies-ltd/medkit/src/incubator/">
+				<div class="shortcut-icon" style="background-image: url(img/sitesIcons/bitbucket-icon.png);">
+				</div>
+				<div class="shortcut-name">
+					<a href="https://bitbucket.org/inventory-technologies-ltd/medkit/src/incubator/">BitBucket Medkit Incubator</a>
+				</div>
+			</a>
+		</div>
 		<p id="content">Test</p>
 	</template>
 

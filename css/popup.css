@@ -1,0 +1,10 @@
+body{
+    background-color: gray;
+}
+td{
+    width: 500px !important;
+}
+a{
+    color: inherit;
+    text-decoration: none ;
+}

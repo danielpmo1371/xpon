@@ -9,7 +9,8 @@ html {
 	height: 100%;
 }
 
-h1{
+.userName{
+	letter-spacing: 15px;
 	align-self: center;
 	text-align: center;
 }
@@ -29,8 +30,9 @@ body {
 #grid{
 	display: flex;
 	flex-wrap: wrap;
-	margin: 10%; 
+	padding: 10%; 
 	position: fixed;
+	box-sizing: border-box;
 }
 
 .shortcut{
@@ -88,6 +90,12 @@ img{
 	opacity: 0.5;
 	z-index: 1;
 }
+
+.deleteBtn, .deleteBtn>img{
+	width: 7px;
+	height: 7px;
+}
+
 
 canvas{
   display: block;

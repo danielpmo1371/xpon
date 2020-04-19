@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-	chrome.storage.sync.get({keyword: "", language: "", animation: "true"}, function(data) {
-		$(".keyword").val(data.keyword);
+	chrome.storage.sync.get({userName: "", language: "", animation: "true"}, function(data) {
+		$(".userName").val(data.userName);
 		$(".language").val(data.language);
 		$(".animation").val(data.animation)
 	});
@@ -10,14 +10,14 @@ $(document).ready(function() {
 
 	$(".save").click(function() {
 		if(!saving) {
-			var keyword = $(".keyword").val();
+			var userName = $(".userName").val();
 			var language = $(".language").val();
 			var animation = $(".animation").val();
 
 			saving = true;
 			$(this).text("Saving..");
 
-			chrome.storage.sync.set({keyword: keyword, language: language, animation: animation}, function() {
+			chrome.storage.sync.set({userName: userName, language: language, animation: animation}, function() {
 				chrome.runtime.sendMessage({message: "fetch"});
 				$(".save").text("Saved!");
 				setTimeout(function() {
