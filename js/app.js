@@ -78,6 +78,8 @@ $(document).ready(function () {
 			setShortcutTemplateValues(tempshortcut, element.title, element.url, element.icon);
 		});
 
+    $(".editBtn").click(editHandler(event));
+
 		$(".deleteBtn").click(function (event) {
 			event.preventDefault();
 
@@ -99,6 +101,27 @@ $(document).ready(function () {
 			});
 		});
 	});
+	
+  function editHandler(){
+    event.preventDefault();
+    
+    var name = this.getAttribute('name');
+    var link = this.getAttribute('link');
+    var icon = this.getAttribute('icon');
+    
+    $("#editModal .nameField").value(name);
+     
+    $("#editModal .urlField").value(link);
+     
+    $("#editModal .iconField").value(icon);
+    
+    $("#editModal").toggle()
+    
+  }
+  
+  function savesaveEditedShortcut() {
+      //implement
+  }
 
 	function setShortcutTemplateValues(template, title, url, icon){
 		let nameElement = template.querySelector(".shortcut-name>a");
