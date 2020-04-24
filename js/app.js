@@ -64,8 +64,8 @@ $(document).ready(function () {
 		}
 	);
 
-	chrome.storage.sync.get({shortcuts: []}, function(data) {
-		var appShortcuts = []; 
+	chrome.storage.sync.get({ shortcuts: [] }, function (data) {
+		var appShortcuts = [];
 		appShortcuts = data.shortcuts;
 		appShortcuts.forEach(element => {
 			const tempshortcut = document.createElement('my-paragraph');
@@ -75,48 +75,51 @@ $(document).ready(function () {
 
 			let grid = document.getElementById('grid');
 			grid.appendChild(tempshortcut);
-			
+
 			setShortcutTemplateValues(tempshortcut, element.title, element.url, element.icon);
 		});
 
-	$(".editBtn").click(editHandler);
+	$(".editBtn").click(editShortcutHandler);
 	
-    $("#editModalClose").click(()=>$("#editModal").toggle());
-
-		$(".deleteBtn").click(function (event) {
-			event.preventDefault();
-
-			var name = this.getAttribute('name');
-			var link = this.getAttribute('link');
-			var icon = this.getAttribute('icon');
-			
-			var confirm = window.confirm(`Are you sure you want to delete ${name}?`);
-			
-			if (!confirm) return;
-
-			chrome.storage.sync.get({ shortcuts: [] }, function (data) {
+	$(".deleteBtn").click(deleteShortcutHandler);
 	
-				var result = data.shortcuts.filter(x => x.url != link);
+	$("#editModalClose").click(()=>$("#editModal").toggle());
 	
-				chrome.storage.sync.set({ shortcuts: result }, function () {
-					console.log('Value is set to ' + result);
-				});
+	});
+
+	function deleteShortcutHandler (event) {
+		event.preventDefault();
+
+		var name = this.getAttribute('name');
+		var link = this.getAttribute('link');
+		var icon = this.getAttribute('icon');
+		
+		var confirm = window.confirm(`Are you sure you want to delete ${name}?`);
+		
+		if (!confirm) return;
+
+		chrome.storage.sync.get({ shortcuts: [] }, function (data) {
+
+			var result = data.shortcuts.filter(x => x.url != link);
+
+			chrome.storage.sync.set({ shortcuts: result }, function () {
+				console.log('Value is set to ' + result);
 			});
 		});
-	});
-	
-  function editHandler(event){
+	}
+
+  function editShortcutHandler(event){
     event.preventDefault();
     
-    // var name = this.getAttribute('name');
-    // var link = this.getAttribute('link');
-    // var icon = this.getAttribute('icon');
+    var name = this.getAttribute('name');
+    var link = this.getAttribute('link');
+    var icon = this.getAttribute('icon');
     
-    // $("#editModal .nameField").value(name);
+    $("#nameField").val(name);
      
-    // $("#editModal .urlField").value(link);
+    $("#urlField").val(link);
      
-    // $("#editModal .iconField").value(icon);
+    $("#iconField").val(icon);
     
     $("#editModal").toggle();
     
@@ -130,6 +133,7 @@ $(document).ready(function () {
 		let nameElement = template.querySelector(".shortcut-name>a");
 		let iconElement = template.querySelector(".shortcut-icon");
 		let linkElement = template.querySelector(".shortcut>a:nth-child(2)");
+		let editElement = template.querySelector(".editBtn");
 		let deleteElement = template.querySelector(".deleteBtn");
 
 		linkElement.href = url;
@@ -141,6 +145,10 @@ $(document).ready(function () {
 		deleteElement.setAttribute('name', title);
 		deleteElement.setAttribute('link', url);
 		deleteElement.setAttribute('icon', icon);
+
+		editElement.setAttribute('name', title);
+		editElement.setAttribute('link', url);
+		editElement.setAttribute('icon', icon);
 	}
 
 	// chrome.storage.local.get("data", function(data) {
