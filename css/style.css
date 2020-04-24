@@ -142,6 +142,11 @@ img{
 	display: block;
 }
 
+.editBtn img{
+	background-color: whitesmoke;
+	border-radius: 3px;
+}
+
 .deleteBtn > img, .editBtn > img{
 	width: 15px;
 	height: 15px;
