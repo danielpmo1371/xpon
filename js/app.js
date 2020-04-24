@@ -2,6 +2,7 @@
 
 
 $(document).ready(function () {
+	$("#editModal").toggle();
 
 	chrome.storage.sync.get({userName: ""}, function(data) {
 		$(".userName").text(data.userName.toUpperCase());
@@ -78,7 +79,9 @@ $(document).ready(function () {
 			setShortcutTemplateValues(tempshortcut, element.title, element.url, element.icon);
 		});
 
-    $(".editBtn").click(editHandler(event));
+	$(".editBtn").click(editHandler);
+	
+    $("#editModalClose").click(()=>$("#editModal").toggle());
 
 		$(".deleteBtn").click(function (event) {
 			event.preventDefault();
@@ -102,20 +105,20 @@ $(document).ready(function () {
 		});
 	});
 	
-  function editHandler(){
+  function editHandler(event){
     event.preventDefault();
     
-    var name = this.getAttribute('name');
-    var link = this.getAttribute('link');
-    var icon = this.getAttribute('icon');
+    // var name = this.getAttribute('name');
+    // var link = this.getAttribute('link');
+    // var icon = this.getAttribute('icon');
     
-    $("#editModal .nameField").value(name);
+    // $("#editModal .nameField").value(name);
      
-    $("#editModal .urlField").value(link);
+    // $("#editModal .urlField").value(link);
      
-    $("#editModal .iconField").value(icon);
+    // $("#editModal .iconField").value(icon);
     
-    $("#editModal").toggle()
+    $("#editModal").toggle();
     
   }
   

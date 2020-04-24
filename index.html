@@ -26,9 +26,32 @@
 		</div>
 	</div>
 
+	<div id="editModal" class="bgGradient">
+		<div class="panel">
+			<span id="editModalClose"><img src="img/closeBtn.png" alt=""></span>
+			<h3 style="text-align: center; margin-bottom: 10px;">Edit Shortcut</h3>
+			<div id="modalContent">
+				<div class="nameSection form-field">
+					<label for="name">Name</label>
+					<input type="text" name="name" id="nameField" />
+				</div>
+				<div class="urlSection form-field">
+					<label for="url">URL</label>
+					<input type="text" name="url" id="urlField" />
+				</div>
+				<div class="iconSection form-field">
+					<label for="icon">Icon</label>
+					<input type="text" name="icon" id="iconField" />
+				</div>
+				<span id="saveEditBtn">Save</span>
+			</div>
+		</div>
+	</div>
+		
 	<template id="my-paragraph">
 		<div class="shortcut">
-			<a class="deleteBtn"><img width="17px" src="img/deleteBtn.png" alt=""></a>
+			<a class="editBtn"><img src="img/editBtn.png" alt=""></a>
+			<a class="deleteBtn"><img src="img/deleteBtn.png" alt=""></a>
 			<a href="">
 				<div class="shortcut-icon" style="background-image: url(img/icon/icon128.png);">
 				</div>
